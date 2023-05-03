@@ -1,0 +1,26 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER,  type TEXT);
+INSERT INTO store VALUES 
+(1, "leggings", 12, 24, "bottoms"),
+(2, "blouse", 30, 45, "tops"),
+(3, "tank", 24, 10, "tops"),
+(4, "jeans", 41, 50, "bottoms"),
+(5, "tshirts", 13, 20, "tops"),
+(6, "sandals", 25, 35, "shoes"),
+(7, "boots", 35, 65, "shoes"),
+(8, "sneakers", 21, 40, "shoes"),
+(9, "skirts", 34, 45, "bottoms"),
+(10, "sweaters", 36, 55, "tops"),
+(11, "sweatpants", 12, 45, "bottoms"),
+(12, "sweatshirts", 14, 35, "tops"),
+(13, "mules", 16, 25, "shoes"),
+(14, "crop", 37, 15, "tops"),
+(15, "joggers", 45, 27, "bottoms");
+
+
+--display the database ordered by price.
+select * from store
+order by price asc;
+
+--what is the total amount of inventory in the store?
+select sum(quantity) from store;
+
