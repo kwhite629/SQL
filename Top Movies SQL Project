@@ -1,0 +1,37 @@
+#In this SQL, I am querying a table that lists top 100 movies, accompanied with its rank, studio, and year of release.
+
+
+select title as "Top Movies in the 2000s" from topmovies where year>2000 and rank<10;
+
+select title as "Top Movies in the 2000s", studio, rank from topmovies
+where title in (select title from topmovies where year>2000 and rank<10)
+order by rank asc;
+
+select studio, avg(rank) as avg_rank from topmovies
+group by studio
+having avg_rank>50;
+
+select avg(rank) as avg_rank
+ from topmovies;
+ 
+select title, min(rank) as min_rank from topmovies;
+select title, max(rank) as max_rank from topmovies;
+
+select title,
+    case
+        when year>=2000 then "2000s"
+        when year>=1990 then "1990s"
+        when year>=1980 then "1980s"
+        when year>=1970 then "1970s"
+    end as "Release Era"
+from topmovies Where title in (select title from topmovies where year<2000);
+
+select count(*),
+    case
+        when year>=2000 then "2000s"
+        when year>=1990 then "1990s"
+        when year>=1980 then "1980s"
+        when year>=1970 then "1970s"
+    end as "release_era"
+from topmovies
+group by release_era;
