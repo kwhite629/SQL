@@ -1,4 +1,4 @@
-#In this SQL, I am querying a table that lists top 100 movies, accompanied with its rank, studio, and year of release.
+#In this SQL, I am querying a table that lists top 100 movies to answer questions about the data.
 
 
 select title as "Top Movies in the 2000s" from topmovies where year>2000 and rank<10;
